@@ -1,0 +1,45 @@
+.form {
+  display: grid;
+  gap: 12px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #888;
+  min-width: 0;
+}
+
+.form h2 {
+  font-size: 20px;
+}
+
+.field {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+
+.field input,
+.form button {
+  min-width: 0;
+  max-width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #888;
+  border-radius: 4px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+}
+
+.field input {
+  width: 100%;
+}
+
+.form button {
+  justify-self: start;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.field input:focus-visible,
+.form button:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
