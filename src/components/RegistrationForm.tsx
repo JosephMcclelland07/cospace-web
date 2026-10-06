@@ -29,18 +29,22 @@ export default function RegistrationForm({ onAddBooking }: RegistrationFormProps
   return (
     <form className={styles.form} onSubmit={handleSubmit} aria-labelledby="registration-heading">
       <h2 id="registration-heading">New desk booking</h2>
+      
       <div className={styles.field}>
         <label htmlFor="registration-desk">Desk</label>
         <input id="registration-desk" name="desk" type="text" required pattern={".*\\S.*"} />
       </div>
+
       <div className={styles.field}>
         <label htmlFor="registration-floor">Floor</label>
         <input id="registration-floor" name="floor" type="number" min={0} step={1} required />
       </div>
+
       <div className={styles.field}>
         <label htmlFor="registration-date">Date</label>
         <input id="registration-date" name="date" type="date" required />
       </div>
+
       <button type="submit">Add booking</button>
     </form>
   );

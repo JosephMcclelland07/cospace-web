@@ -30,8 +30,10 @@ export default function BookingList() {
 
   return (
     <section className={styles.list} aria-labelledby="bookings-heading">
+     
       <h1 id="bookings-heading">Desk bookings</h1>
       <RegistrationForm onAddBooking={addBooking} />
+      
       <div className={styles.search}>
         <label htmlFor="booking-search">Search bookings</label>
         <input
@@ -42,9 +44,11 @@ export default function BookingList() {
           onChange={(event) => setSearch(event.target.value)}
         />
       </div>
+
       <p role="status">
         {visibleBookings.length} {visibleBookings.length === 1 ? "booking" : "bookings"}
       </p>
+      
       {visibleBookings.length > 0 ? (
         visibleBookings.map(({ id, ...booking }) => (
           <BookingCard key={id} {...booking} />
