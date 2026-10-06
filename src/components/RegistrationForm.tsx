@@ -1,5 +1,3 @@
-"use client";
-
 import type { FormEvent } from "react";
 import type { BookingCardProps } from "./BookingCard";
 import styles from "./RegistrationForm.module.css";

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styles from "./BookingCard.module.css";
 
 export interface BookingCardProps {
@@ -12,8 +13,9 @@ export default function BookingCard({
   floor,
   date,
   active,
-}: BookingCardProps) {
-  return (
+  href,
+}: BookingCardProps & { href?: string }) {
+  const card = (
     <article className={styles.card}>
       <h2>Desk {desk}</h2>
       <p>Floor: {floor}</p>
@@ -24,5 +26,13 @@ export default function BookingCard({
         Status: {active ? "Active" : "Inactive"}
       </p>
     </article>
+  );
+
+  return href ? (
+    <Link href={href} className={styles.link}>
+      {card}
+    </Link>
+  ) : (
+    card
   );
 }

@@ -51,7 +51,7 @@ export default function BookingList() {
       
       {visibleBookings.length > 0 ? (
         visibleBookings.map(({ id, ...booking }) => (
-          <BookingCard key={id} {...booking} />
+          <BookingCard key={id} href={`/bookings/${id}`} {...booking} />
         ))
       ) : (
         <p>No bookings match your search.</p>
