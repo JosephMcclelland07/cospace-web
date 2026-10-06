@@ -5,6 +5,40 @@
   min-width: 0;
 }
 
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.toolbar h1 {
+  font-size: 28px;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+.newBooking {
+  padding: 10px 16px;
+  border: 1px solid #16733b;
+  border-radius: 4px;
+  background: #16733b;
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.newBooking:hover {
+  background: #10582d;
+}
+
+.newBooking:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+}
+
 .search {
   display: grid;
   gap: 8px;

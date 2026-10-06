@@ -1,11 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import BookingCard, { type BookingCardProps } from "./BookingCard";
+import type { BookingCardProps } from "./BookingCard";
+import BaseModal from "./BaseModal";
+import BookingsTable, { type DeskBooking } from "./BookingsTable";
 import RegistrationForm from "./RegistrationForm";
 import styles from "./BookingList.module.css";
-
-type DeskBooking = BookingCardProps & { id: string };
 
 export default function BookingList() {
   const [bookings, setBookings] = useState<DeskBooking[]>([
@@ -14,11 +14,13 @@ export default function BookingList() {
     { id: "booking-3", desk: "C03", floor: 3, date: "2026-10-06", active: true },
   ]);
   const [search, setSearch] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   function addBooking(booking: BookingCardProps) {
     const newBooking = { ...booking, id: crypto.randomUUID() };
     setBookings((currentBookings) => [...currentBookings, newBooking]);
     setSearch("");
+    setIsModalOpen(false);
   }
 
   const query = search.trim().toLowerCase();
@@ -30,10 +32,25 @@ export default function BookingList() {
 
   return (
     <section className={styles.list} aria-labelledby="bookings-heading">
-     
-      <h1 id="bookings-heading">Desk bookings</h1>
-      <RegistrationForm onAddBooking={addBooking} />
-      
+      <div className={styles.toolbar}>
+        <h1 id="bookings-heading">Desk bookings</h1>
+        <button
+          type="button"
+          className={styles.newBooking}
+          aria-haspopup="dialog"
+          onClick={() => setIsModalOpen(true)}
+        >
+          New booking
+        </button>
+      </div>
+      <BaseModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        title="Create booking"
+      >
+        <RegistrationForm onAddBooking={addBooking} />
+      </BaseModal>
+
       <div className={styles.search}>
         <label htmlFor="booking-search">Search bookings</label>
         <input
@@ -50,9 +67,7 @@ export default function BookingList() {
       </p>
       
       {visibleBookings.length > 0 ? (
-        visibleBookings.map(({ id, ...booking }) => (
-          <BookingCard key={id} href={`/bookings/${id}`} {...booking} />
-        ))
+        <BookingsTable bookings={visibleBookings} />
       ) : (
         <p>No bookings match your search.</p>
       )}

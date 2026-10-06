@@ -32,6 +32,16 @@
   width: 100%;
 }
 
+.field input[aria-invalid="true"] {
+  border-color: #b42318;
+}
+
+.error {
+  color: #b42318;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
 .form button {
   justify-self: start;
   font-weight: 600;
