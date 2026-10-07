@@ -15,11 +15,13 @@ export default function BookingList() {
   ]);
   const [search, setSearch] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [successMessage, setSuccessMessage] = useState("");
 
   function addBooking(booking: BookingCardProps) {
     const newBooking = { ...booking, id: crypto.randomUUID() };
     setBookings((currentBookings) => [...currentBookings, newBooking]);
     setSearch("");
+    setSuccessMessage("Booking created successfully.");
     setIsModalOpen(false);
   }
 
@@ -38,7 +40,10 @@ export default function BookingList() {
           type="button"
           className={styles.newBooking}
           aria-haspopup="dialog"
-          onClick={() => setIsModalOpen(true)}
+          onClick={() => {
+            setSuccessMessage("");
+            setIsModalOpen(true);
+          }}
         >
           New booking
         </button>
@@ -63,6 +68,7 @@ export default function BookingList() {
       </div>
 
       <p role="status">
+        {successMessage && `${successMessage} `}
         {visibleBookings.length} {visibleBookings.length === 1 ? "booking" : "bookings"}
       </p>
       

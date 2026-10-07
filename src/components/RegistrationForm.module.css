@@ -48,6 +48,11 @@
   cursor: pointer;
 }
 
+.form button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
 .field input:focus-visible,
 .form button:focus-visible {
   outline: 2px solid currentColor;
