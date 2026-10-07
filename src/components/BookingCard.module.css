@@ -1,0 +1,49 @@
+.link {
+  display: block;
+  border-radius: 8px;
+}
+
+.link:hover .card {
+  border-color: currentColor;
+}
+
+.link:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+}
+
+.card {
+  padding: 20px;
+  border: 1px solid #888;
+  border-radius: 8px;
+  overflow-wrap: anywhere;
+}
+
+.card h2 {
+  margin-bottom: 12px;
+  font-size: 20px;
+}
+
+.card p {
+  margin-top: 8px;
+}
+
+.active {
+  color: #16733b;
+  font-weight: 600;
+}
+
+.inactive {
+  color: #666;
+  font-weight: 600;
+}
+
+@media (prefers-color-scheme: dark) {
+  .active {
+    color: #86dc9e;
+  }
+
+  .inactive {
+    color: #bbb;
+  }
+}

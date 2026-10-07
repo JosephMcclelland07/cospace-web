@@ -1,0 +1,61 @@
+.container {
+  width: 100%;
+  min-width: 0;
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 16px;
+}
+
+.table caption {
+  padding-bottom: 12px;
+  text-align: left;
+  font-weight: 600;
+}
+
+.table th,
+.table td {
+  padding: 12px;
+  border-bottom: 1px solid #888;
+}
+
+.table thead {
+  background: color-mix(in srgb, currentColor 6%, transparent);
+}
+
+.table time {
+  white-space: nowrap;
+}
+
+.table a {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.table a:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+}
+
+.active {
+  color: #16733b;
+  font-weight: 600;
+}
+
+.inactive {
+  color: #666;
+}
+
+@media (prefers-color-scheme: dark) {
+  .active {
+    color: #86dc9e;
+  }
+
+  .inactive {
+    color: #bbb;
+  }
+}

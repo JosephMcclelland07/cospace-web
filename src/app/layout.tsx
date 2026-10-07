@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -20,7 +21,21 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
-      <body>{children}</body>
+      <body>
+        <header className="site-header">
+          <div className="site-header-inner">
+            <Link href="/" className="site-brand" aria-label="CoSpace home">
+              CoSpace
+            </Link>
+            <nav aria-label="Main navigation">
+              <Link href="/" className="site-nav-link">
+                Dashboard
+              </Link>
+            </nav>
+          </div>
+        </header>
+        {children}
+      </body>
     </html>
   );
 }

@@ -1,0 +1,94 @@
+.dashboard {
+  --sidebar-width: 224px;
+  display: flex;
+  width: 100%;
+  height: calc(100dvh - var(--site-header-height));
+  min-height: 0;
+  overflow: hidden;
+  font-family: var(--font-geist-sans);
+}
+
+.sidebar {
+  position: fixed;
+  top: var(--site-header-height);
+  bottom: 0;
+  left: 0;
+  width: var(--sidebar-width);
+  padding: 32px 20px;
+  overflow-y: auto;
+  border-right: 1px solid color-mix(in srgb, var(--foreground) 20%, transparent);
+  background: color-mix(in srgb, #16733b 8%, var(--background));
+}
+
+.sidebarTitle {
+  margin-bottom: 24px;
+  font-size: 18px;
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sidebar a {
+  display: block;
+  padding: 12px;
+  border-radius: 4px;
+  font-size: 16px;
+  overflow-wrap: anywhere;
+}
+
+.sidebar a:hover,
+.sidebar a[aria-current="page"] {
+  background: color-mix(in srgb, var(--foreground) 8%, transparent);
+}
+
+.sidebar a:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+.main {
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+  margin-left: var(--sidebar-width);
+  padding: 32px;
+  overflow-y: auto;
+  background: var(--background);
+}
+
+.dashboard:has(dialog[open]) .main {
+  overflow: hidden;
+}
+
+.activity {
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid color-mix(in srgb, var(--foreground) 20%, transparent);
+}
+
+@media (max-width: 600px) {
+  .dashboard {
+    --sidebar-width: 112px;
+  }
+
+  .sidebar {
+    padding: 24px 8px;
+  }
+
+  .sidebarTitle {
+    font-size: 16px;
+    overflow-wrap: anywhere;
+  }
+
+  .sidebar a {
+    padding: 12px 4px;
+    font-size: 14px;
+  }
+
+  .main {
+    padding: 24px 12px;
+  }
+}

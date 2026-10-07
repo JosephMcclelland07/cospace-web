@@ -1,4 +1,5 @@
 :root {
+  --site-header-height: 80px;
   --background: #ffffff;
   --foreground: #171717;
 }
@@ -40,6 +41,55 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+.site-header {
+  flex-shrink: 0;
+  height: var(--site-header-height);
+  border-bottom: 1px solid color-mix(in srgb, var(--foreground) 20%, transparent);
+  background: var(--background);
+  font-family: var(--font-geist-sans);
+}
+
+.site-header-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 24px;
+  width: 100%;
+  height: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px 60px;
+}
+
+.site-brand {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.site-nav-link {
+  display: inline-block;
+  padding: 8px 0;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.site-nav-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.site-header a:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+}
+
+@media (max-width: 600px) {
+  .site-header-inner {
+    padding: 16px 24px;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
