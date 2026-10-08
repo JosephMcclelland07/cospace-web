@@ -22,12 +22,10 @@ export function validateBookingForm(
 ): FormErrors {
 	const nextErrors: FormErrors = {};
 
-	if (desk.trim().length < 3) {
-		nextErrors.desk = "Desk name must be at least 3 characters long.";
+	if (!/^\d+$/.test(desk.trim()) || !Number.isSafeInteger(Number(desk)) || Number(desk) < 1) {
+		nextErrors.desk = "Enter a whole desk number of 1 or higher.";
 	}
-	if (floor.trim().length < 5) {
-		nextErrors.floor = "Floor must be at least 5 characters long.";
-	} else if (!Number.isSafeInteger(Number(floor)) || Number(floor) < 0) {
+	if (!floor.trim() || !Number.isSafeInteger(Number(floor)) || Number(floor) < 0) {
 		nextErrors.floor = "Enter a whole floor number of 0 or higher.";
 	}
 
@@ -142,7 +140,7 @@ export default function CreateBookingForm({ onAddBooking }: CreateBookingFormPro
 			<div className={styles.field}>
 				<label htmlFor="registration-desk">Desk</label>
 				<input
-					id="registration-desk" name="desk" type="text" minLength={3} required pattern={".*\\S.*"}
+					id="registration-desk" name="desk" type="number" min={1} step={1} required
 					value={desk}
 					disabled={isLoading}
 					onChange={handleChange}

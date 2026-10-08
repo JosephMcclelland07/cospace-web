@@ -3,7 +3,7 @@ import styles from "./BookingCard.module.css";
 
 export interface BookingCardProps {
   desk: string;
-  floor: number;
+  floor: number | null;
   date: string;
   active: boolean;
 }
@@ -18,7 +18,7 @@ export default function BookingCard({
   const card = (
     <article className={styles.card}>
       <h2>Desk {desk}</h2>
-      <p>Floor: {floor}</p>
+      <p>Floor: {floor ?? "Not provided"}</p>
       <p>
         Date: <time dateTime={date}>{date}</time>
       </p>

@@ -5,6 +5,21 @@
   min-width: 0;
 }
 
+.errorAlert {
+  padding: 16px;
+  border: 1px solid #b42318;
+  border-radius: 4px;
+  background: #fff4f2;
+  color: #8c1d18;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.errorAlert strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
 .toolbar {
   display: flex;
   flex-wrap: wrap;
