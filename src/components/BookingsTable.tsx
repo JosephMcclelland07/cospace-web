@@ -40,7 +40,7 @@ export default function BookingsTable({
                 <td>
                   <Link href={`/bookings/${booking.id}`}>{booking.desk}</Link>
                 </td>
-                <td>{booking.floor}</td>
+                <td>{booking.floor ?? "Not provided"}</td>
                 <td>
                   <time dateTime={booking.date}>{booking.date}</time>
                 </td>
