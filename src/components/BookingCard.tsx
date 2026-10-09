@@ -8,6 +8,12 @@ export interface BookingCardProps {
   active: boolean;
 }
 
+export interface DeskOption {
+  id: number;
+  name: string;
+  floor: number;
+}
+
 export default function BookingCard({
   desk,
   floor,
@@ -17,7 +23,7 @@ export default function BookingCard({
 }: BookingCardProps & { href?: string }) {
   const card = (
     <article className={styles.card}>
-      <h2>Desk {desk}</h2>
+      <h2>{/^desk(?:\b|-)/i.test(desk) ? desk : `Desk ${desk}`}</h2>
       <p>Floor: {floor ?? "Not provided"}</p>
       <p>
         Date: <time dateTime={date}>{date}</time>

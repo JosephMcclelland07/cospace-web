@@ -54,6 +54,21 @@
   outline-offset: 4px;
 }
 
+.signOut {
+  padding: 8px 12px;
+  border: 1px solid #888;
+  border-radius: 4px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.signOut:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+}
+
 .search {
   display: grid;
   gap: 8px;

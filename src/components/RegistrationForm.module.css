@@ -17,6 +17,7 @@
 }
 
 .field input,
+.field select,
 .form button {
   min-width: 0;
   max-width: 100%;
@@ -29,6 +30,10 @@
 }
 
 .field input {
+  width: 100%;
+}
+
+.field select {
   width: 100%;
 }
 
@@ -51,6 +56,14 @@
 .form button:disabled {
   opacity: 0.6;
   cursor: wait;
+}
+
+.form .switchMode {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  text-decoration: underline;
 }
 
 .field input:focus-visible,
