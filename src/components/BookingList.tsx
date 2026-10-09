@@ -127,15 +127,12 @@ export default function BookingList() {
         activeRequest.current = null;
       }
     };
-  }, [search]);
+  }, []);
 
   function changeSearch(value: string) {
     if (value === search) {
       return;
     }
-    activeRequest.current?.abort();
-    setIsLoading(true);
-    setFetchError("");
     setSearch(value);
   }
 
